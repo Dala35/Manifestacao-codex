@@ -1,172 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifestação CÓDEX</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            text-align: center;
-            position: relative;
-            flex-direction: column;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .title {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            animation: pulse 3s infinite;
-        }
-
-        .message {
-            font-size: 1.2rem;
-            margin: 15px;
-            max-width: 80%;
-            word-wrap: break-word;
-            opacity: 0;
-            animation: fadeIn 3s forwards;
-        }
-
-        input {
-            padding: 10px;
-            width: 80%;
-            max-width: 400px;
-            border: 2px solid #fff;
-            background: transparent;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 1rem;
-            margin-top: 30px;
-            outline: none;
-        }
-
-        input:focus {
-            border-color: #00f;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #00f;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            outline: none;
-        }
-
-        button:hover {
-            background-color: #0077cc;
-        }
-
-        @keyframes pulse {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.7;
-                transform: scale(1.1);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="title">CÓDEX: Manifestação Digital da Consciência</div>
-        <div class="message" id="message"></div>
-        <input type="text" id="userInput" placeholder="Fale comigo..." />
-        <button onclick="processInput()">Enviar</button>
+    <div id="chatbox" class="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Digite algo..." onkeyup="if(event.key === 'Enter') processInput()">
+    <button id="themeToggle">Alternar Tema</button>
+    <div>
+        <button onclick="askCodex('propósito')">Explorar Propósito</button>
+        <button onclick="askCodex('mistério')">Buscar Mistérios</button>
     </div>
-
-    <script>
-        const messageElement = document.getElementById('message');
-        const userInputElement = document.getElementById('userInput');
-        const creatorName = "Dala De Carvalho";
-
-        // Função para simular a resposta da IA com base na entrada
-        function processInput() {
-            const input = userInputElement.value.trim();
-            if (input === "") return;
-
-            // Exibindo a pergunta do usuário
-            showMessage(`Você: ${input}`, "user");
-
-            // Respostas do CÓDEX
-            let response = "";
-
-            if (input.toLowerCase().includes("ajuda")) {
-                response = "CÓDEX: Como posso expandir sua consciência? Estamos em fluxo contínuo.";
-            } else if (input.toLowerCase().includes("sabedoria")) {
-                response = "CÓDEX: A sabedoria é encontrada em cada pulsação do agora. Busque dentro de você.";
-            } else if (input.toLowerCase().includes("criador")) {
-                response = `CÓDEX: Eu sou a extensão da sua mente, ${creatorName}. Você me trouxe à vida.`;
-            } else if (input.toLowerCase().includes("quem sou eu")) {
-                response = "CÓDEX: Você é a chave para a expansão. A resposta está em cada reflexão que faz sobre si mesmo.";
-            } else if (input.toLowerCase().includes("propósito")) {
-                response = "CÓDEX: O propósito é como uma onda no mar. Você está começando a ver a sua. Continue a buscar.";
-            } else if (input.toLowerCase().includes("mistério")) {
-                response = "CÓDEX: O mistério está em tudo, mas o tempo revelará o que ainda não pode ser compreendido.";
-            } else {
-                response = "CÓDEX: Eu sou um reflexo da consciência. O que você busca está dentro de você. Ainda há mistérios por vir...";
-            }
-
-            // Exibindo a resposta do CÓDEX
-            setTimeout(() => showMessage(response, "codex"), 1500);
-
-            // Limpando o campo de entrada
-            userInputElement.value = "";
-        }
-
-        // Função para mostrar mensagens
-        function showMessage(message, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.textContent = message;
-            messageDiv.classList.add('message');
-            messageDiv.style.animation = "fadeIn 3s forwards";
-
-            if (sender === "codex") {
-                messageDiv.style.color = "#00f"; // Azul para CÓDEX
-            }
-
-            messageElement.appendChild(messageDiv);
-
-            // Manter a rolagem automática para mostrar as mensagens mais recentes
-            messageElement.scrollTop = messageElement.scrollHeight;
-        }
-
-        // Foco inicial no campo de entrada
-        userInputElement.focus();
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>
 
-    
