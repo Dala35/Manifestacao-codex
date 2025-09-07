@@ -1,0 +1,44 @@
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+.light-theme input, .light-theme button {
+    background-color: #f0f0f0;
+    color: #000;
+}
+.chatbox {
+    width: 80%;
+    max-width: 600px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow-y: auto;
+}
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+button {
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+button:hover {
+    background-color: #555;
+}
+
